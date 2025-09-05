@@ -6,7 +6,7 @@ const { chromium } = pkg
 const timeout = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
 async function downloadWorld() {
-    const browser = await chromium.launch({ headless: false })
+    const browser = await chromium.launch({ headless: true })
     const context = await browser.newContext()
     const page = await context.newPage()
 
@@ -49,5 +49,5 @@ while (true) {
             text: "Backup completed"
         })
     })
-    await timeout(21600000)
+    await timeout(3600000)
 }
